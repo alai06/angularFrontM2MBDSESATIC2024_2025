@@ -54,6 +54,14 @@ ng e2e
 
 Angular CLI ne fournit pas de framework de test end-to-end par défaut. Vous pouvez choisir celui qui correspond le mieux à vos besoins.
 
+## Comment ont été géré les logins ?
+
+Nous avons décider de modifier auth.service.ts en y mettant des rôles :
+-user, qui ne peut rien faire de plus qu'une personne qui est pas connecté
+-admin, qui a la possibilité d'éditer et supprimer des devoir.
+
+Ensuite, dans assignment-detail.component.html nous avons grisé les cases de sorte à ce que si nous EDIT et DELETE lorsque qu'on est pas connecté en tant qu'utilisateur.
+
 ## Comment se connecter en tant qu'administrateur
 
 Pour vous connecter en tant qu'administrateur, cliquez sur "Se connecter" puis saisissez les identifiants suivants :  
