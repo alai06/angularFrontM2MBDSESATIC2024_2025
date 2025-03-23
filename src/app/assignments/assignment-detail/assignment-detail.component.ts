@@ -7,6 +7,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { AssignmentsService } from '../../shared/assignments.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../shared/auth.service';
 
 @Component({
   selector: 'app-assignment-detail',
@@ -22,7 +23,8 @@ export class AssignmentDetailComponent implements OnInit{
   @Input()
   assignmentTransmis?:Assignment;
 
-  constructor(private assignmentsService:AssignmentsService, 
+  constructor(private assignmentsService:AssignmentsService,
+    private authService:AuthService, 
     private route:ActivatedRoute,
     private router:Router) {}
 
@@ -45,6 +47,9 @@ export class AssignmentDetailComponent implements OnInit{
     console.log(fragment);
 
     this.getAssignment();
+  }
+  isAdmin() : boolean{
+    return this.authService.loggedIn;
   }
 
   getAssignment(): void {

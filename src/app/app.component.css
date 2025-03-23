@@ -1,0 +1,28 @@
+mat-sidenav-container {
+  height: calc(205vh - 115vh);
+}
+mat-sidenav {
+  width: 200px;
+  background-color:#2F97FF;
+}
+.titre {
+    margin: 0 auto;
+    text-align: center;
+}
+
+mat-toolbar {
+    background-color: #005dba;
+    color: white;
+}
+.item-button {
+    color: white !important;
+    border-radius: 10px;
+}
+.item {
+    background-color: #005dba;
+    color: white !important;
+    border-radius: 10px;
+}
+mat-slide-toggle {
+    color: white !important;
+}
