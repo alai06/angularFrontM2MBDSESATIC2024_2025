@@ -1,19 +1,26 @@
 <mat-toolbar color="primary">
   <button mat-button class=item (click)="opened = !opened"><mat-icon>menu</mat-icon></button>
   <span class="titre">{{titre}}</span>
-  <mat-slide-toggle class = "auth">Authentification</mat-slide-toggle>
+  @if (!authService.isLogged()) {
+    <button mat-button class="auth" routerLink="/login">Se connecter</button>
+  } @else {
+    <button mat-button class="auth" (click)="authService.logOut()">Se déconnecter</button>
+  }
+  
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="push">
     <mat-list>
       <mat-list-item><button mat-button class="item-button" routerLink="/home"><mat-icon>home</mat-icon>Accueil</button></mat-list-item>
       <mat-list-item><button mat-button class="item-button" routerLink="/add"><mat-icon>add</mat-icon>Ajouter un devoir</button></mat-list-item>
+      <mat-list-item><button mat-button class="item-button" (click)="genererDonneesDeTest()" routerLink="/home"><mat-icon>auto_awesome
+      </mat-icon>Generer une BD</button></mat-list-item>
     </mat-list>
     </mat-sidenav>
   <mat-sidenav-content>
-    <button mat-raised-button color="primary" (click)="genererDonneesDeTest()">
+<!--     <button mat-raised-button color="primary" (click)="genererDonneesDeTest()">
       PEUPLER BD AVEC DONNEES DE TEST
-    </button>
+    </button> -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

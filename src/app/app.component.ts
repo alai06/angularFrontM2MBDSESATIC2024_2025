@@ -25,13 +25,19 @@ export class AppComponent {
   titre = 'Premier projet Angular';
   opened = false;
 
-  constructor(private assignmentsService: AssignmentsService,private authService : AuthService,private router : Router) {}
-
-  login(){
-    if(!this.authService.loggedIn){
-      this.authService.logIn();
-    }
-    else{
+  constructor(private assignmentsService: AssignmentsService,public authService : AuthService,private router : Router) {}
+  login(login: string, password: string) {
+    if (!this.authService.loggedIn) {
+      if (this.authService.logIn(login, password)) {
+        if (this.authService.isAdmin()) {
+          this.router.navigate(['home']);
+        } else if (this.authService.isUser()) {
+          this.router.navigate(['/home']);
+        }
+      } else {
+        alert('Login ou mot de passe incorrect');
+      }
+    } else {
       this.authService.logOut();
       this.router.navigate(['/home']);
     }

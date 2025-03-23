@@ -26,3 +26,7 @@ mat-toolbar {
 mat-slide-toggle {
     color: white !important;
 }
+.auth {
+    background-color: #005dba;
+    color: white !important;
+}
