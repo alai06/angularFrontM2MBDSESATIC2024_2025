@@ -10,7 +10,7 @@ import { bdInitialAssignments } from './data';
 })
 export class AssignmentsService {
   //backendURL = 'http://localhost:8010/api/assignments';
-  backendURL = 'https://angularbackm2mbdsesatic2024-2025.onrender.com/api/assignments';
+  backendURL = 'https://angularfrontm2mbdsesatic2024-2025-0oe6.onrender.com/home';
 
 
 assignments:Assignment[] = [];
